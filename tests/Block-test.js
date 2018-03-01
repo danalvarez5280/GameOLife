@@ -23,4 +23,9 @@ describe('Block', function () {
         assert.equal(block.alive, false)
 
     });
+
+    it('should be able to start alive', function () {
+        var block = new Block(true);
+        assert.equal(block.alive, true);
+    });
 });
