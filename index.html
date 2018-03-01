@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <script>
+        function drawImage() {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            var imageWidth = canvas.width = Math.min(canvas.width, window.innerWidth);
+            var imageHeight = canvas.height = Math.min(canvas.height, window.innerHeight);
+            var imageData = context.createImageData(imageWidth, imageHeight);
+
+            // iterate over all pixels based on x and y coordinates
+            for (var y = 0; y < imageHeight; y++) {
+                // loop through each column
+                for (var x = 0; x < imageWidth; x++) {
+                    imageData.data[(imageWidth * y + x) * 4 + 0] = y / imageHeight * 255;
+                    imageData.data[(imageWidth * y + x) * 4 + 1] = y / imageHeight * 255;
+                    imageData.data[(imageWidth * y + x) * 4 + 2] = x / imageWidth * 255;
+                    imageData.data[(imageWidth * y + x) * 4 + 3] = 255;
+                }
+            }
+            context.putImageData(imageData, 0, 0);
+        }
+        drawImage();
+    </script>
+</body>
+
+</html>
