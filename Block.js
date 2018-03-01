@@ -9,10 +9,10 @@ class Block {
 
     checkAlive() {
         if(this.alive) {
-            ///check live conditions
+            this.alive = false;
         }
         else {
-            // check dead conditions
+            this.alive = true;
         }
     }
 
